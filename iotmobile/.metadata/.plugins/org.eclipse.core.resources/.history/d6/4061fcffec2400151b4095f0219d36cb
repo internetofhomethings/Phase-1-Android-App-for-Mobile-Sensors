@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mobile Monitors</title>
+
+    <!-- Bootstrap -->
+    <!--
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+ 
+    
+  </head>
+  <!----css for the lessons --->
+  <style>
+      .navbar-brand {
+          font-size:1.7em;
+      }
+
+      #topContainer, #middleContainer, #footer{
+        background-color: #EEEEEE;
+        height:400px;
+        width:100%;
+        background-size: cover; /* image covers window size */
+      }
+      .topRow {
+        margin-top:70px;
+        text-align:center;
+        /* color: #5bc0de; */
+        color: #827e7e;
+      }
+      .topRow2 {
+        margin-top:3px;
+        margin-bottom:0px;
+        text-align:center;
+      }
+      .topRow h1 {
+        margin-bottom:15px;
+        font-size:155%;
+        font-weight: bolder;
+      }
+      #middletitle {
+        margin-bottom:15px;
+        font-size:155%;
+        font-weight: bolder;
+        color: #827e7e;
+      }
+      .bold {
+        font-weight: bold;
+      }
+      .marginTop {
+        margin-top:30px;
+      }
+      .marginBottom {
+        margin-bottom:30px;
+      }
+      .center {
+        text-align:center;
+      }
+      .title {
+        margin-top:100px;
+        font-size:300%;
+      }
+      .appstore {
+        width:250px;
+      }
+      .ctlgarage {
+        width:100px;
+      }
+      .ctlwater {
+        width:110px;
+        margin-left:0px !important;
+        margin-right:0px !important;
+        margin-top:0px !important;
+        margin-bottom:0px !important;
+      }
+      .waterstatus {
+        width:110px     !important;
+        height:34px     !important;
+        margin-left:4px !important;
+        margin-top:5px !important;
+        margin-bottom:0px !important;
+        border-radius:3px;
+        display:inline;
+      }
+      .rain {
+        width:298px;
+        margin-left:0px !important;
+        margin-right:0px !important;
+      }
+      #garstatuscontainer {
+        margin:auto;
+      }
+      #middle,#top {
+        margin-left:0px;
+      }
+      #garsta1 {
+           font-size:15px;
+           margin-top:5px;
+           font-weight: normal;
+           padding-left:56px;
+           padding-right:53px;
+           margin-left:0px;
+           margin-bottom:0px;
+           border-radius:3px;
+           color:white;
+      }
+      #garsta2 {
+           font-size:15px;
+           margin-top:5px;
+           margin-bottom:0px;
+           font-weight: normal;
+           padding-left:22px;
+           padding-right:25px;
+           border-radius:3px;
+           color:white;
+      }
+      #garsta3 {
+          width:308px;
+          border-radius:3px;
+          font-size:15px;
+          margin-top:3px;
+          font-weight: normal;
+          padding-left:84px;
+          padding-right:80px;
+          margin-left:0px;
+          color:white;
+      }
+      #garagepic {
+          height:230px;
+          width:310px;
+          border: none;
+          -webkit-border-radius: 9px;
+      }
+      .time,.date {
+          text-align: center;
+          width:330px;
+          border-radius:3px;
+          font-weight: bolder !important;
+          padding-left:0px !important;
+          color: #827e7e;
+      }
+      .enlabel,.waterena {
+           font-size:15px;
+        margin-top:25px !important;
+        margin-bottom:0px !important;
+           font-weight: normal;
+           padding-left:24px;
+           padding-right:24px;
+           padding-top:7px !important;
+           padding-bottom:10px !important;
+           border-radius:3px;
+      }
+
+      .offlabel {
+           font-size:15px;
+           margin-top:15px;
+           font-weight: normal;
+           padding-left:30px;
+           padding-right:30px;
+           padding-top:7px !important;
+           padding-bottom:10px !important;
+           border-radius:3px;
+           color:white;
+      }
+      .weatherlabel {
+          text-align: right;
+          border-radius:3px;
+          font-size:15px;
+          margin-top:3px;
+          margin-bottom:3px;
+          font-weight: normal;
+          padding-top:2px;
+          padding-bottom:2px;
+          padding-right:5px;
+          /*
+          padding-left:36px;
+          margin-left:0px;
+          */
+          color:white;
+      }
+      .tblSep {
+          width:3px;
+      }
+      .tblParNum {
+          width:25px;
+          text-align: center !important;
+      }
+      .tblPar {
+          width:145px;
+          text-align: right;
+      }
+      .tblParVal {
+          width:105px;
+          text-align: right;
+      }
+      .tblParUni {
+          width:25px;
+          text-align: right;
+      }
+      table.fixed { table-layout:fixed; }
+      table.fixed td { overflow: hidden; }
+
+      .centerit {
+          margin-left: auto;
+          margin-right: auto;
+          border-collapse:collapse;
+      }
+      .tblRowSep {
+          height:3px;
+      }
+
+      th {
+        color: #827e7e;
+          text-align: center !important;      }
+
+  </style>
+  <body>
+    <!--- first class specifies object...second class has some generic styling --->
+    <!--- navbar-inverse(black background)
+      --- navbar-default(light grey background) -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">  <!--- container-fluid for non fixed width --->
+          <!--- Title on left, collapsable menu on right --->
+          <div class="navbar-header">
+
+            <a href="" class="navbar-brand">
+                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                Mobile Things
+            </a>
+            <!---- this button allows menu to collapse with narrow screen --->
+            <button type="button" class="navbar-toggle collapsed"
+                data-toggle="collapse"
+                data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <!--- 3 icon bars in button --->
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+          </div>
+
+          <!--- Menu --->
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <!-- class 'active' highlights the menu option -->
+              <li class="active"><a href="#topContainer">Garage..</a></li>
+              <li><a href="#middleContainer">Sprinklers</a></li>
+              <li><a href="#footer">Weather</a></li>
+            </ul>
+
+          </div>
+
+      </div>
+    </div>
+
+      <!-- Here starts the page body --->
+    <!-- 1st page --->
+    <div class="container contentContainer" id="footer">
+      <div class="container-fluid" id="bottom">
+        <div class="tblRowSep"></div>
+        <div class="tblRowSep"></div>
+        <div class="tblRowSep"></div>
+        <div class="tblRowSep"></div>
+        <div class="tblRowSep"></div>
+        <div class="row topRow">
+            <h1 id="middletitle">Mobile Sensor Values</h1>
+        </div>
+       <div>
+          <table class="fixed centerit">
+            <thead>
+              <tr>
+                <th class="tblParNum">No.</th>
+                <th class="tblSep"></th>
+                <th class="tblPar">Parameter</th>
+                <th class="tblSep"></th>
+                <th class="tblParVal">Value</th>
+                <th class="tblSep"></th>
+                <th class="tblParUni">Units</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="label-info weatherlabel tblParNum">1</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblPar">Baro Temperature</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParVal" id="tempBaro">61</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParUni" id="tempBaroUnits">F</td>
+              </tr>
+              <tr>
+                   <td class="tblRowSep"></td>
+              </tr>
+              <tr>
+                <td class="label-info weatherlabel tblParNum">2</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblPar">Baro Pressure</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParVal" id="presBaro">29.89</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParUni" id="presBaroUnits">inHg</td>
+              </tr>
+              <tr>
+                   <td class="tblRowSep"></td>
+              </tr>
+              <tr>
+                <td class="label-info weatherlabel tblParNum">3</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblPar">Humidity</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParVal" id="humidity">33</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParUni" id="humidityUnits">%</td>
+              </tr>
+              <tr>
+                   <td class="tblRowSep"></td>
+              </tr>
+              <tr>
+                <td class="label-info weatherlabel tblParNum">4</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblPar">System Time</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParVal" id="systime">12345</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParUni" id="systimeUnits">sec</td>
+              </tr>
+              <tr>
+                   <td class="tblRowSep"></td>
+              </tr>
+              <tr>
+                <td class="label-info weatherlabel tblParNum">5</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblPar">System Heap</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParVal" id="sysheap">32457</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParUni" id="sysheapUnits">byte</td>
+              </tr>
+              <tr>
+                   <td class="tblRowSep"></td>
+              </tr>
+              <tr>
+                <td class="label-info weatherlabel tblParNum">6</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblPar">System Iterations</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParVal" id="sysloop">4697</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParUni" id="sysloopUnits">loop</td>
+              </tr>
+              <tr>
+                   <td class="tblRowSep"></td>
+              </tr>
+              <tr>
+                <td class="label-info weatherlabel tblParNum">7</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblPar">Latitude</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParVal" id="Lat">0357231</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParUni" id="LatUnits">Deg</td>
+              </tr>
+              <tr>
+                   <td class="tblRowSep"></td>
+              </tr>
+              <tr>
+                <td class="label-info weatherlabel tblParNum">8</td>
+                <td class="tblSep"></th>
+                <td class="label-info weatherlabel tblPar">Longitude</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParVal" id="Lon">4249969</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParUni" id="LonUnits">Deg</td>
+              </tr>
+              <tr>
+                   <td class="tblRowSep"></td>
+              </tr>
+              <tr>
+                <td class="label-info weatherlabel tblParNum">9</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblPar">Heart Rate</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParVal" id="HeartRate">126</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParUni" id="HeartRateUnits">ppm</td>
+              </tr>
+              <tr>
+                   <td class="tblRowSep"></td>
+              </tr>
+              <tr>
+                <td class="label-info weatherlabel tblParNum">10</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblPar">Speed</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParVal" id="Speed">12.8</td>
+                <td class="tblSep"></td>
+                <td class="label-info weatherlabel tblParUni" id="SpeedUnits">mph</td>
+              </tr>
+              <tr>
+                   <td class="tblRowSep"></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    <p id="geolocation">Finding geolocation...</p>
+    <!---- Page Footer --->
+    <div class="row topRow2">
+        <span class="date">Date Placeholder</span><br>
+        <span class="time">Time Placeholder</span>
+    </div>
+      
+      <!----- Garage Page ---------------------------------------------->
+    <div class="container contentContainer" id="topContainer">
+      <div class="container-fluid" id="top">
+	    <div class="row"></div>
+	    <div class="row topRow">
+	        <h1 id="middletitle">2nd page</h1>
+	    </div>
+	  </div>
+    </div>
+    <!---- Page Footer --->
+    <div class="row topRow2">
+        <span class="date"></span><br>
+        <span class="time"></span>
+    </div>
+
+    <!----- Sprinkler Page ------------------------------------------->
+    <div class="container contentContainer" id="middleContainer">
+      <div class="container-fluid" id="middle">
+	    <div class="row"></div>
+	    <div class="row topRow">
+	        <h1 id="middletitle">3rd page</h1>
+	    </div>
+      </div>
+    </div>
+    <!---- Page Footer --->
+    <div class="row topRow2">
+        <span class="date"></span><br>
+        <span class="time"></span>
+    </div>
+
+    </div>
+
+    <iframe id="callURL" hidden="true" src=""></iframe>
+    
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!---<script src="../bootstrap/js/bootstrap.min.js"></script>--->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <!---<script src="support-files/mscorlib.js" type="text/javascript" charset="utf-8"></script>
+    --->
+    <script src="js/PerfectWidgets.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+
+        <!--- App Javascript
+              Note: Must be AFTER bootstrap jQuery above to work properly
+          --->
+    <script>
+         // Set height of container to height of window
+         // min-height supports small devices that cannot fit
+         // entire container on 1 screen
+         ////function setPageHeight() {
+             $(".contentContainer").css("min-height",$(window).height() );
+
+
+
+        //Collapse menu after item is clicked
+        $(".nav a").on("click", function(){
+           $(".nav").find(".active").removeClass("active");
+           $(this).parent().addClass("active");
+           $(".collapse").collapse('hide');
+        });
+
+        //Adjust Garage Door status position when window resized
+        window.addEventListener('resize', function(event){
+
+        });
+
+        //------------------------------------------
+        // Globals
+        //------------------------------------------
+        var sensordata;
+        var deviceID    = "55ff68065075555337511687";
+        var accessToken = "4044eb05c437a9d19581274c98d9e3340d41e30a";
+        var every100    = 101;
+        var busy        = 0;
+        
+        //var geo = cordova.require("plugins/org.apache.cordova.geolocation/www/geolocation");
+		options = {
+		  enableHighAccuracy: true,
+		  timeout: 1000,
+		  maximumAge: 0
+		};
+		
+        //------------------------------------------
+        // Functions triggered after page loaded
+        //------------------------------------------
+        jQuery(window).load(function () {
+            navigator.geolocation.watchPosition(onSuccess, onError, options);
+        });
+        
+
+
+
+        //--------------------------------------------------------
+        //Update Garage door and switch status
+        //--------------------------------------------------------
+        // a5 = 5v (>3v) Garage Door Close, 0v (<1v) Garage Door Open
+        //pg1 = Garage Door Switch (1=open, 0=closed)
+        //pf0 = Disable Garage Door Safety-active LO
+        //pf1 = Station 1 (Front Main)
+        //pf2 = Station 2 (Front Left)
+        //pf3 = Station 3 (Front Planters)
+        //pf4 = Station 4 (Back Main)
+        //pf5 = Station 5 (Back Planters)
+        //pf6 = Station 6 (Not Used)
+        //pf7 = Power to Station 1-5 selectors=active LO
+        //--------------------------------------------------------
+      function updateSensorStatus(thedata) {
+      	//Wind Speed
+      	//--------------------------------------------
+      	ws = (thedata.a2 < 0.33) ? 0.0 : (thedata.a2 - 0.33) * 46.1636;
+      	document.getElementById("windSH").innerHTML = ws.toFixed(1) + " mph";
+
+        //Sprinkler auto-enable Status
+        //--------------------------------
+        if (thedata.pf7==1) {
+            updateStatus(".waterena", "Auto-on", "label-danger", "label-info", "24px");
+        }
+        else {
+            updateStatus(".waterena", "Auto-off", "label-info", "label-danger", "24px");
+        }
+
+        updateSprinklerOnOff("#watersta1", thedata.pf1);
+        updateSprinklerOnOff("#watersta2", thedata.pf2);
+        updateSprinklerOnOff("#watersta3", thedata.pf3);
+        updateSprinklerOnOff("#watersta4", thedata.pf4);
+        updateSprinklerOnOff("#watersta5", thedata.pf5);
+
+
+        //Garage Door Open/Closed Status
+        //--------------------------------
+         garageClosed = thedata.a5>3.0;
+        if (garageClosed) {
+            updateStatus("#garsta3", "Garage door is closed", "label-danger", "label-info", "86px");
+        }
+        else {
+            updateStatus("#garsta3", "Garage door is open", "label-info", "label-danger", "95px");
+        }
+        //Garage Door Safety Beam Sensor
+        //---------------------------------
+        if (thedata.pf0==1) {
+            updateStatus("#garsta2", "Enabled", "label-danger", "label-info", "22px");
+        }
+        else {
+            updateStatus("#garsta2", "Disabled", "label-info", "label-danger", "18px");
+        }
+        //Garage Door Switch
+        //---------------------------------
+        if (thedata.pg1==1) {
+            updateStatus("#garsta1", "Switch is open", "label-danger", "label-info", "56px");
+        }
+        else {
+            updateStatus("#garsta1", "Switch is closed", "label-info", "label-danger", "45px");
+        }
+
+      }
+        //---------------------------------------------
+        //Callback for Spark core "Data1" publications
+        //---------------------------------------------
+        //deleted
+
+
+        //-----------------------------------------
+        //Update Sprinkler Status
+        //-----------------------------------------
+        function updateSprinklerOnOff(id, state) {
+          if (state==1) {
+              updateStatus(id, "Off", "label-danger", "label-info", "30px");
+          }
+          else {
+              updateStatus(id, "On", "label-info", "label-danger", "30px");
+          }
+        }
+
+
+        //-----------------------------------------
+        //Update Object Status
+        //-----------------------------------------
+        function updateStatus(object, newStatus, oldClass, newClass, padleft) {
+          $(object).html(newStatus);
+          $(object).removeClass(oldClass);
+          $(object).addClass(newClass);
+          $(object).css("padding-left",padleft);
+        }
+
+        var cnt=0;
+        var imgB="http://surfnturf57.duckdns.org:9001/oneshotimage.jpg?user=admin&pwd=admin";
+        function updateImg() {
+            if ($(".nav").find(".active").index()==0) { //Only update garage image if gragae control page is displayed
+                //Adding the cnt (not used) forces the browswer to reload the image
+                $("#garagepic").attr("src",imgB+"&cnt="+cnt++);
+            }
+        }
+        //-------------------------------------------------
+        // Toggle garage door button when pushed
+        //-------------------------------------------------
+        $("#pushgarage").on("click", function(){
+            var ONOFFGarageURL="http://surfnturf57.duckdns.org:9123/x10.spi?house=C&unit=9&cmd=21&x10event=1";
+             //$("#callURL").src(ONOFFGarageURL);  //this does not work
+            document.getElementById("callURL").src=ONOFFGarageURL;
+        });
+
+        //-------------------------------------------------
+        // Toggle garage door safety when pushed
+        //-------------------------------------------------
+        $("#safegarage").on("click", function(){
+            var disableSafetyURL="http://surfnturf57.duckdns.org:9900/?f=FE";
+            var enableSafetyURL="http://surfnturf57.duckdns.org:9900/?f=FF";
+
+            if($("#garsta2").html() == "Enabled") {
+               document.getElementById("callURL").src=disableSafetyURL;
+            }
+            else {
+               document.getElementById("callURL").src=enableSafetyURL;
+            }
+            updateSensorData();
+        });
+
+        //-------------------------------------------------
+        // Toggle garage door switch when pushed
+        //-------------------------------------------------
+        $("#toglgarage").on("click", function(){
+            var closeGarageSwitchURL="http://surfnturf57.duckdns.org:9123/webio.spi?house=C&unit=9&cmd=2&x10event=1";
+            var openGarageSwitchURL="http://surfnturf57.duckdns.org:9123/x10.spi?house=C&unit=9&cmd=3&x10event=1";
+
+            if($("#garsta1").html() == "Switch is open") {
+               document.getElementById("callURL").src=closeGarageSwitchURL;
+            }
+            else {
+               document.getElementById("callURL").src=openGarageSwitchURL;
+            }
+        });
+
+        //-------------------------------------------------
+        // Toggle sprinkler station 0 (rain) when pushed
+        //-------------------------------------------------
+        $("#pushstation0").on("click", function(){
+            setwaterOnOff(0,sensordata.pf7,sensordata.pf0); //sensor(1-5),sensor value,safety enable
+        });
+
+        //-------------------------------------------------
+        // Toggle sprinkler station 1 on/off when pushed
+        //-------------------------------------------------
+        $("#pushstation1").on("click", function(){
+            setwaterOnOff(1,sensordata.pf1,sensordata.pf0); //sensor(1-5),sensor value,safety enable
+        });
+        //-------------------------------------------------
+        // Toggle sprinkler station 2 on/off when pushed
+        //-------------------------------------------------
+        $("#pushstation2").on("click", function(){
+            setwaterOnOff(2,sensordata.pf2,sensordata.pf0);
+        });
+        //-------------------------------------------------
+        // Toggle sprinkler station 3 on/off when pushed
+        //-------------------------------------------------
+        $("#pushstation3").on("click", function(){
+            setwaterOnOff(3,sensordata.pf3,sensordata.pf0);
+        });
+        //-------------------------------------------------
+        // Toggle sprinkler station 4 on/off when pushed
+        //-------------------------------------------------
+        $("#pushstation4").on("click", function(){
+            setwaterOnOff(4,sensordata.pf4,sensordata.pf0);
+        });
+        //-------------------------------------------------
+        // Toggle sprinkler station 5 on/off when pushed
+        //-------------------------------------------------
+        $("#pushstation5").on("click", function(){
+            setwaterOnOff(5,sensordata.pf5,sensordata.pf0);
+        });
+
+        //-------------------------------------------------
+        // Toggle sprinkler station
+        //-------------------------------------------------
+        function setwaterOnOff(station, value, safety) {
+            var SprinklerURL="http://surfnturf57.duckdns.org:9900/?f=";
+            var setValue = ["7D","7B","77","6F","5F","7C","7A","76","6E","5E","FE","FF","7E","7F"];
+            //                                          turn water 0n    water on index (0-4 if safety off)  water off index   rain mode
+            index = (station !=0) ? ((value == "1") ? ((station - 1) + ( (safety == "0") * 5)) : (safety == "0") ?  10 : 11) : (value == "1") ? (safety == "0") ?  12 : 13 : (safety == "0") ?  10 : 11;
+            document.getElementById("callURL").src=SprinklerURL + setValue[index];
+
+            updateSensorData();
+        }
+
+        function getweather() {
+        	/******************************************
+            requestURL_WEATHER = "http://api.openweathermap.org/data/2.5/weather?q=Moorpark,ca";
+            $.getJSON(requestURL_WEATHER, function(thedata) {
+
+                sr = new Date(thedata.sys.sunrise * 1000).toLocaleString();
+                sss = new Date(thedata.sys.sunset * 1000).toLocaleString();
+
+                $("#SunRise").html("0" + sr.split(" ")[1] + " AM");
+                $("#SunSet").html("0" + sss.split(" ")[1] + " PM");
+
+                document.getElementById("windS").innerHTML = thedata.wind.speed.toFixed(1) + " mph";
+                if(thedata.wind.deg < 23) {
+                    document.getElementById("windD").innerHTML = "North";
+                }
+                else if(thedata.wind.deg < 67) {
+                    document.getElementById("windD").innerHTML = "Northeast";
+                }
+                else if(thedata.wind.deg < 112) {
+                    document.getElementById("windD").innerHTML = "East";
+                }
+                else if(thedata.wind.deg < 157) {
+                    document.getElementById("windD").innerHTML = "Southeast";
+                }
+                else if(thedata.wind.deg < 202) {
+                    document.getElementById("windD").innerHTML = "South";
+                }
+                else if(thedata.wind.deg < 247) {
+                    document.getElementById("windD").innerHTML = "Southwest";
+                }
+                else if(thedata.wind.deg < 292) {
+                    document.getElementById("windD").innerHTML = "West";
+                    //$("#windD").css("padding-left","65px");
+                }
+                else if(thedata.wind.deg < 337) {
+                    document.getElementById("windD").innerHTML = "Northwest";
+                    //$("#windD").css("padding-left","54px");
+                }
+                else {
+                    document.getElementById("windD").innerHTML = "North";
+                }
+            });
+            *********************************/
+        }
+
+        function updateClock() {
+            var now = new Date(), // current date
+                months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            var hour = now.getHours() > 12 ? now.getHours() - 12 : now.getHours();
+                hour = hour < 10 ? '0' + hour : hour;
+            var ampm = now.getHours() > 12 ? ' PM' : ' AM';
+            var secd = now.getSeconds() < 10 ? '0' + now.getSeconds() : now.getSeconds();
+            var minu = now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes();
+                time = hour + ':' + minu + ':' + secd + ampm;
+                timeloc =time + '  California, USA';
+                // a cleaner way than string concatenation
+                date = [now.getDate(),
+                        months[now.getMonth()],
+                        now.getFullYear()].join(' ');
+
+            // set the content of the element with the ID date & time
+             $(".date").html("Date: " + date);
+             $(".time").html("Time: " + timeloc);
+             $("#timenow").html(time);
+
+
+        }
+
+        //--------------------------------------------
+        //Update Sensor Data
+        //--------------------------------------------
+        function updateSensorData() {
+            var modtronixURL = "http://surfnturf57.duckdns.org:9900/values.cgi";
+            //Get Status of Garage SBC65ES ADIO
+            $.getJSON(modtronixURL, function(thedata) {
+                sensordata = thedata;
+            	updateSensorStatus(thedata);
+            });
+            //updateSensorStatus(thedata);
+
+        }
+
+        //--------------------------------------------
+        //Update WeatherSensor Data
+        //--------------------------------------------
+        function updateWeatherSensorData() {
+            requestURL = "http://192.168.22.1:9703/?request=GetSensors";
+			if ( typeof updateWeatherSensorData.timeout == 'undefined' ) {
+				// It has not... perform the initialization
+				updateWeatherSensorData.timeout = 0;
+			}
+            //Get Weather Sensor Value
+			$.ajax({
+				url: requestURL,
+				error: function(error){
+					if(updateWeatherSensorData.timeout++ <10) {
+						setTimeout(updateWeatherSensorData, 1000);
+					}
+					else {
+						updateWeatherSensorData.timeout = 0;
+					}
+				},
+				success: function(thedata){
+					$("#tempBaro").html(thedata.B_Temperature);
+					$("#presBaro").html(thedata.B_Pressure);
+					$("#humidity").html(thedata.DH_Humidity);
+					$("#systime").html(thedata.SYS_Time);
+					$("#sysheap").html(thedata.SYS_Heap);
+					$("#sysloop").html(thedata.SYS_Loopcnt);
+					updateWeatherSensorData.timeout = 0;
+				},
+				timeout: 7000 // sets timeout to 7 seconds
+			});
+        }
+
+        //--------------------------------------------
+        //Periodic tasks (1 sec interval)
+        //--------------------------------------------
+
+        window.setInterval(function() {
+        	//alert('Hi');
+			//updateSensorData();
+			updateClock();
+			every100 = every100 +1;
+			if(every100==4) {
+			    //navigator.geolocation.watchPosition(onSuccess, onError, options);  
+			}
+			//if(every100 > 3) {
+				//updateWeatherSensorData();
+				//getweather(); // Update the on-line weather
+				//every100 = 0;
+			//}
+			//Update gps location every 4 seconds
+			if(every100%4==0) {
+				//navigator.notification.vibrate(250);
+				//navigator.geolocation.getCurrentPosition(onSuccess, onError);
+			}
+        }, 1000);
+
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        $("#geolocation").html("Ready!!!");
+        //alert('ready /n');
+        //navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+    // onSuccess Geolocation
+    //
+    function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = //'Latitude: '           + position.coords.latitude              + '<br />' +
+                            //'Longitude: '          + position.coords.longitude             + '<br />' +
+                            'Altitude: '           + position.coords.altitude              + '<br />' +
+                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                            //'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                            'Heading: '            + position.coords.heading               + '<br />' +
+                            //'Speed: '              + position.coords.speed                 + '<br />' +
+                            'Timestamp: '          +                                   position.timestamp          + '<br />';
+        var latt = position.coords.latitude.toFixed(7).toString();
+        var long = position.coords.longitude.toFixed(7).toString();
+        $("#Lat").html(latt.substring(0, 11));
+        $("#Lon").html(long.substring(0, 12));
+        $("#Speed").html(position.coords.speed);
+        updateWeatherSensorData();
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Failed GPS' + '<br />';
+    }
+    </script>    
+
+  </body>
+</html>
